@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Sayfa Slider</title>
+    <style>
+    .main-page-slider{
+        max-width: 1200px;
+        margin:  auto;
+        background: #000;
+    }
+
+    .main-page-slider img{
+       width: 100%; 
+    }
+
+    .desktop{
+        display: block;
+    }
+
+    .mobil{
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+    .desktop {
+        display: none;
+    }
+    .mobil {
+        display: block;
+    }
+    }
+
+    .slider-images{
+        display: none;
+    }
+       .slider-images.active{
+        display: block;
+    }
+
+   </style>
+</head>
+<body>
+    <div class="main-page-slider">
+        <div class="slider-images active">
+            <div class="desktop">
+              <img src="https://eae-prod.s3.eu-west-1.amazonaws.com/contents/linex-banner-masaustu.webp" alt="linex">
+            </div>
+            <div class="mobil">
+                <img src="https://eae-prod.s3.eu-west-1.amazonaws.com/contents/kk-yeni-mobile.jpg" alt="kablo kanalı">
+            </div>
+        </div>
+           <div class="slider-images">
+            <div class="desktop">
+              <img src="https://eae-customobject.s3.eu-west-1.amazonaws.com/slider/elektrikticaret/pano-tanitim-desktop-1.webp" alt="pano">
+            </div>
+            <div class="mobil">    
+                <img src="https://eae-customobject.s3.eu-west-1.amazonaws.com/slider/kablo-kanali-mobile.jpg" alt="kablo kanalı">
+            </div>
+        </div>
+           <div class="slider-images">
+            <div class="desktop">
+              <img src="https://eae-customobject.s3.eu-west-1.amazonaws.com/slider/kablo-kanali-masaustu.jpg" alt="kk-masaüstü">
+            </div>
+            <div class="mobil">
+                <img src="https://eae-customobject.s3.eu-west-1.amazonaws.com/slider/elektrikticaret/pano-tanitim-mobile-1.webp" alt="pano tanıtım">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var slides = document.querySelectorAll('.slider-images');
+        var current = 0;
+
+        slides[0].style.display = 'block';
+
+        for (var i = 1; i < slides.length; i++) {
+            slides[i].style.display = 'none';
+        }
+
+        setInterval(function () {
+            slides[current].style.display = 'none';
+            current = (current + 1) % slides.length;
+            slides[current].style.display = 'block';
+        }, 3000);
+    </script>
+
+</body>
+</html>
